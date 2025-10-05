@@ -5,12 +5,20 @@ using namespace std;
 JungleScene::JungleScene() : Scene()
 {
     ResourcesService::Load<Model>("../Resources/PalmTree/PalmTrees.glb");
+    ResourcesService::Load<Model>("../Resources/ArtDungeonScene1/ArtDungeonScene1.glb");
+
     ResourcesService::Load<Model>("../Resources/Quad.glb");
     ResourcesService::Load<Texture>("../Resources/JungleGround.png");
-    std::vector<std::string> shaderPaths;
-    shaderPaths.emplace_back("../Resources/Shader/AlphaCutout.vs");
-    shaderPaths.emplace_back("../Resources/Shader/AlphaCutout.fs");
-    ResourcesService::Load<Shader>(shaderPaths);
+    ResourcesService::Load<Texture>("../Resources/ArtDungeonScene1/Tiles_Moss.jpg");
+    std::vector<std::string> alphaCutoutShaderPaths;
+    alphaCutoutShaderPaths.emplace_back("../Resources/Shader/AlphaCutout.vs");
+    alphaCutoutShaderPaths.emplace_back("../Resources/Shader/AlphaCutout.fs");
+    ResourcesService::Load<Shader>(alphaCutoutShaderPaths);
+
+    std::vector<std::string> diffuseShaderPaths;
+    diffuseShaderPaths.emplace_back("../Resources/Shader/DiffuseLightmap.vs");
+    diffuseShaderPaths.emplace_back("../Resources/Shader/DiffuseLightmap.fs");
+    ResourcesService::Load<Shader>(diffuseShaderPaths);
     /*
     std::shared_ptr<Model> treeModel;
     if (ResourcesController::TryGetModel("../Resources/PalmTree/PalmTrees.glb", treeModel))
@@ -37,10 +45,24 @@ JungleScene::JungleScene() : Scene()
     // Place a few trees
     for (size_t i = 0; i < 200; i++)
     {
-        PlaceRandomTree();
+        // PlaceRandomTree();
     }
 
-    GenerateGround();
+    // GenerateGround();
+
+    std::shared_ptr<Core::Entity> levelModelEntity = CreateEntity();
+    levelModelEntity->Name = "ArtDungeonScene1";
+    auto t = levelModelEntity->AddComponent<Core::Transform>();
+    t->SetPosition({0, 0, 0});
+    t->SetEulerAngles({0, 0, 0});
+    t->SetScale({1, 1, 1});
+
+    auto r = levelModelEntity->AddComponent<Core::MeshRenderer>();
+    r->SetModel("../Resources/ArtDungeonScene1/ArtDungeonScene1.glb");
+    r->SetBackfaceCulling(true);
+    r->SetShader(-1, "../Resources/Shader/DiffuseLightmap.vs", "../Resources/Shader/DiffuseLightmap.fs");
+    // r->SetTexture(1, "texture0", "../Resources/ArtDungeonScene1/Tiles_Moss.jpg");
+    // r->SetTexture(1, "texture1", "../Resources/ArtDungeonScene1/Lightmap.png");
 
     Enable();
 }
@@ -50,10 +72,18 @@ JungleScene::~JungleScene()
     ResourcesService::Unload<Model>("../Resources/PalmTree/PalmTrees.glb");
     ResourcesService::Unload<Model>("../Resources/Quad.glb");
     ResourcesService::Unload<Texture>("../Resources/JungleGround.png");
+    ResourcesService::Unload<Model>("../Resources/ArtDungeonScene1/ArtDungeonScene1.glb");
+    ResourcesService::Unload<Texture>("../Resources/ArtDungeonScene1/Tiles_Moss.jpg");
+
     std::vector<std::string> shaderPaths;
     shaderPaths.emplace_back("../Resources/Shader/AlphaCutout.vs");
     shaderPaths.emplace_back("../Resources/Shader/AlphaCutout.fs");
     ResourcesService::Unload<Shader>(shaderPaths);
+
+    std::vector<std::string> diffuseShaderPaths;
+    diffuseShaderPaths.emplace_back("../Resources/Shader/DiffuseLightmap.vs");
+    diffuseShaderPaths.emplace_back("../Resources/Shader/DiffuseLightmap.fs");
+    ResourcesService::Unload<Shader>(diffuseShaderPaths);
 }
 
 void JungleScene::PlaceRandomTree()

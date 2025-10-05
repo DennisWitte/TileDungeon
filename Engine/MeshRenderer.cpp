@@ -32,7 +32,7 @@ namespace Core
     }
 
     /// @brief Sets a custom shader for a specific material index of the model.
-    /// @param materialIndex
+    /// @param materialIndex Use -1 to assign the shader to all materials on this model.
     /// @param shaderVertPath
     /// @param shaderFragPath
     void MeshRenderer::SetShader(const int materialIndex, std::string vertexShaderPath, std::string fragmentShaderPath)
@@ -45,12 +45,20 @@ namespace Core
         }
 
         // TODO: Checken ob auch ein korrekter Vert / Frag shader vorliegt. Ansonsten SEG FAULT
-        if (materialIndex < 0 || materialIndex >= _model->materialCount)
+        if (materialIndex > 0 && materialIndex < _model->materialCount)
         {
-            printf("ERROR: Material index out of range\n");
+            _model->materials[materialIndex].shader = *shader;
             return;
         }
-        _model->materials[materialIndex].shader = *shader;
+        else if (materialIndex < 0)
+        {
+            for (size_t i = 0; i < _model->materialCount; i++)
+            {
+                _model->materials[i].shader = *shader;
+            }
+        }
+
+        printf("ERROR: Material index out of range\n");
     }
     /// @brief Set the alpha threshold for shaders with alpha cutout.
     /// @param threshold
@@ -67,7 +75,7 @@ namespace Core
 
     void MeshRenderer::SetBackfaceCulling(bool cull) { _backfaceCulling = cull; }
 
-    void MeshRenderer::SetTexture(int materialIndex, std::string texturePath)
+    void MeshRenderer::SetTexture(const int materialIndex, std::string texturePath)
     {
         if (materialIndex < 0 || materialIndex >= _model->materialCount)
         {
@@ -76,9 +84,39 @@ namespace Core
         }
 
         std::shared_ptr<Texture> texture;
-        if (ResourcesService::TryGet<Texture>("../Resources/JungleGround.png", texture))
+        if (ResourcesService::TryGet<Texture>(texturePath, texture))
         {
             _model->materials[materialIndex].maps[MATERIAL_MAP_DIFFUSE].texture = *texture;
+        }
+    }
+
+    void MeshRenderer::SetTexture(const int materialIndex, std::string textureParameter, std::string texturePath)
+    {
+        if (materialIndex > 0 && materialIndex < _model->materialCount)
+        {
+            std::shared_ptr<Texture> texture;
+            if (ResourcesService::TryGet<Texture>(texturePath, texture))
+            {
+                int texLoc = GetShaderLocation(_model->materials[materialIndex].shader, textureParameter.c_str());
+                SetShaderValueTexture(_model->materials[materialIndex].shader, texLoc, *texture);
+            }
+            return;
+        }
+        else if (materialIndex < 0)
+        {
+            std::shared_ptr<Texture> texture;
+            if (ResourcesService::TryGet<Texture>(texturePath, texture))
+            {
+                for (size_t i = 0; i < _model->materialCount; i++)
+                {
+                    int texLoc = GetShaderLocation(_model->materials[i].shader, textureParameter.c_str());
+                    SetShaderValueTexture(_model->materials[i].shader, texLoc, *texture);
+                }
+            }
+        }
+        else
+        {
+            printf("ERROR: Material index out of range\n");
         }
     }
 
@@ -111,5 +149,5 @@ namespace Core
             rlEnableBackfaceCulling();
         else
             rlDisableBackfaceCulling();
-        }
+    }
 }

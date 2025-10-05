@@ -178,6 +178,7 @@ namespace Core
         void SetShader(const int materialIndex, std::string vertexShaderPath, std::string fragmentShaderPath);
         void SetBackfaceCulling(bool cull);
         void SetTexture(const int materialIndex, std::string texturePath);
+        void SetTexture(const int materialIndex, std::string textureParameter, std::string texturePath);
 
         void OnEntityEnable() override;
         void OnEntityDisable() override;
