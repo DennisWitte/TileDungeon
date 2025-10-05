@@ -6,7 +6,11 @@ JungleScene::JungleScene() : Scene()
 {
     ResourcesService::Load<Model>("../Resources/PalmTree/PalmTrees.glb");
     ResourcesService::Load<Model>("../Resources/Quad.glb");
-
+    ResourcesService::Load<Texture>("../Resources/JungleGround.png");
+    std::vector<std::string> shaderPaths;
+    shaderPaths.emplace_back("../Resources/Shader/AlphaCutout.vs");
+    shaderPaths.emplace_back("../Resources/Shader/AlphaCutout.fs");
+    ResourcesService::Load<Shader>(shaderPaths);
     /*
     std::shared_ptr<Model> treeModel;
     if (ResourcesController::TryGetModel("../Resources/PalmTree/PalmTrees.glb", treeModel))
@@ -45,6 +49,11 @@ JungleScene::~JungleScene()
 {
     ResourcesService::Unload<Model>("../Resources/PalmTree/PalmTrees.glb");
     ResourcesService::Unload<Model>("../Resources/Quad.glb");
+    ResourcesService::Unload<Texture>("../Resources/JungleGround.png");
+    std::vector<std::string> shaderPaths;
+    shaderPaths.emplace_back("../Resources/Shader/AlphaCutout.vs");
+    shaderPaths.emplace_back("../Resources/Shader/AlphaCutout.fs");
+    ResourcesService::Unload<Shader>(shaderPaths);
 }
 
 void JungleScene::PlaceRandomTree()
@@ -59,7 +68,8 @@ void JungleScene::PlaceRandomTree()
     auto r = treeEntity->AddComponent<Core::MeshRenderer>();
     r->SetModel("../Resources/PalmTree/PalmTrees.glb");
     r->SetBackfaceCulling(false);
-    // r->SetShader(1, _alphaCutoutShader);
+    r->SetShader(1, "../Resources/Shader/AlphaCutout.vs", "../Resources/Shader/AlphaCutout.fs");
+    r->SetAlphaThreshold(1, 0.6f);
 }
 
 void JungleScene::GenerateGround()
@@ -78,7 +88,7 @@ void JungleScene::GenerateGround()
         auto r = groundEntity->AddComponent<Core::MeshRenderer>();
         r->SetModel("../Resources/Quad.glb");
         r->SetBackfaceCulling(true);
-        //        r->SetTexture(0, _jungleGroundTexture);
+        r->SetTexture(0, "../Resources/JungleGround.png");
 
         x++;
         if (x > 199)

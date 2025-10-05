@@ -175,9 +175,9 @@ namespace Core
         ~MeshRenderer();
         void SetModel(std::string filePath);
         void SetAlphaThreshold(int materialIndex, float threshold);
-        void SetShader(const int materialIndex, Shader shader);
+        void SetShader(const int materialIndex, std::string vertexShaderPath, std::string fragmentShaderPath);
         void SetBackfaceCulling(bool cull);
-        void SetTexture(const int materialIndex, Texture texture);
+        void SetTexture(const int materialIndex, std::string texturePath);
 
         void OnEntityEnable() override;
         void OnEntityDisable() override;

@@ -1,4 +1,4 @@
-# Install script for directory: /home/dennis/Projects/Raylib/TileDungeon/raylib
+# Install script for directory: /home/dennis/Projects/TileDungeon/raylib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,6 +44,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/dennis/Projects/Raylib/TileDungeon/Builds/raylib/raylib/cmake_install.cmake")
+  include("/home/dennis/Projects/TileDungeon/Builds/raylib/raylib/cmake_install.cmake")
 endif()
 

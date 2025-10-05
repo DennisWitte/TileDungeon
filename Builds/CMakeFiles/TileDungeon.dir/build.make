@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/dennis/Projects/Raylib/TileDungeon
+CMAKE_SOURCE_DIR = /home/dennis/Projects/TileDungeon
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/dennis/Projects/Raylib/TileDungeon/Builds
+CMAKE_BINARY_DIR = /home/dennis/Projects/TileDungeon/Builds
 
 # Include any dependencies generated for this target.
 include CMakeFiles/TileDungeon.dir/depend.make
@@ -70,144 +70,144 @@ include CMakeFiles/TileDungeon.dir/progress.make
 include CMakeFiles/TileDungeon.dir/flags.make
 
 CMakeFiles/TileDungeon.dir/Main.cpp.o: CMakeFiles/TileDungeon.dir/flags.make
-CMakeFiles/TileDungeon.dir/Main.cpp.o: /home/dennis/Projects/Raylib/TileDungeon/Main.cpp
+CMakeFiles/TileDungeon.dir/Main.cpp.o: /home/dennis/Projects/TileDungeon/Main.cpp
 CMakeFiles/TileDungeon.dir/Main.cpp.o: CMakeFiles/TileDungeon.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/Raylib/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TileDungeon.dir/Main.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Main.cpp.o -MF CMakeFiles/TileDungeon.dir/Main.cpp.o.d -o CMakeFiles/TileDungeon.dir/Main.cpp.o -c /home/dennis/Projects/Raylib/TileDungeon/Main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TileDungeon.dir/Main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Main.cpp.o -MF CMakeFiles/TileDungeon.dir/Main.cpp.o.d -o CMakeFiles/TileDungeon.dir/Main.cpp.o -c /home/dennis/Projects/TileDungeon/Main.cpp
 
 CMakeFiles/TileDungeon.dir/Main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TileDungeon.dir/Main.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/Raylib/TileDungeon/Main.cpp > CMakeFiles/TileDungeon.dir/Main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/TileDungeon/Main.cpp > CMakeFiles/TileDungeon.dir/Main.cpp.i
 
 CMakeFiles/TileDungeon.dir/Main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TileDungeon.dir/Main.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/Raylib/TileDungeon/Main.cpp -o CMakeFiles/TileDungeon.dir/Main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/TileDungeon/Main.cpp -o CMakeFiles/TileDungeon.dir/Main.cpp.s
 
 CMakeFiles/TileDungeon.dir/Game.cpp.o: CMakeFiles/TileDungeon.dir/flags.make
-CMakeFiles/TileDungeon.dir/Game.cpp.o: /home/dennis/Projects/Raylib/TileDungeon/Game.cpp
+CMakeFiles/TileDungeon.dir/Game.cpp.o: /home/dennis/Projects/TileDungeon/Game.cpp
 CMakeFiles/TileDungeon.dir/Game.cpp.o: CMakeFiles/TileDungeon.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/Raylib/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/TileDungeon.dir/Game.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Game.cpp.o -MF CMakeFiles/TileDungeon.dir/Game.cpp.o.d -o CMakeFiles/TileDungeon.dir/Game.cpp.o -c /home/dennis/Projects/Raylib/TileDungeon/Game.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/TileDungeon.dir/Game.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Game.cpp.o -MF CMakeFiles/TileDungeon.dir/Game.cpp.o.d -o CMakeFiles/TileDungeon.dir/Game.cpp.o -c /home/dennis/Projects/TileDungeon/Game.cpp
 
 CMakeFiles/TileDungeon.dir/Game.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TileDungeon.dir/Game.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/Raylib/TileDungeon/Game.cpp > CMakeFiles/TileDungeon.dir/Game.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/TileDungeon/Game.cpp > CMakeFiles/TileDungeon.dir/Game.cpp.i
 
 CMakeFiles/TileDungeon.dir/Game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TileDungeon.dir/Game.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/Raylib/TileDungeon/Game.cpp -o CMakeFiles/TileDungeon.dir/Game.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/TileDungeon/Game.cpp -o CMakeFiles/TileDungeon.dir/Game.cpp.s
 
 CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.o: CMakeFiles/TileDungeon.dir/flags.make
-CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.o: /home/dennis/Projects/Raylib/TileDungeon/Engine/Entity.cpp
+CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.o: /home/dennis/Projects/TileDungeon/Engine/Entity.cpp
 CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.o: CMakeFiles/TileDungeon.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/Raylib/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.o -MF CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.o.d -o CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.o -c /home/dennis/Projects/Raylib/TileDungeon/Engine/Entity.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.o -MF CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.o.d -o CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.o -c /home/dennis/Projects/TileDungeon/Engine/Entity.cpp
 
 CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/Raylib/TileDungeon/Engine/Entity.cpp > CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/TileDungeon/Engine/Entity.cpp > CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.i
 
 CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/Raylib/TileDungeon/Engine/Entity.cpp -o CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/TileDungeon/Engine/Entity.cpp -o CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.s
 
 CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.o: CMakeFiles/TileDungeon.dir/flags.make
-CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.o: /home/dennis/Projects/Raylib/TileDungeon/Engine/Scene.cpp
+CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.o: /home/dennis/Projects/TileDungeon/Engine/Scene.cpp
 CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.o: CMakeFiles/TileDungeon.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/Raylib/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.o -MF CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.o.d -o CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.o -c /home/dennis/Projects/Raylib/TileDungeon/Engine/Scene.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.o -MF CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.o.d -o CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.o -c /home/dennis/Projects/TileDungeon/Engine/Scene.cpp
 
 CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/Raylib/TileDungeon/Engine/Scene.cpp > CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/TileDungeon/Engine/Scene.cpp > CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.i
 
 CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/Raylib/TileDungeon/Engine/Scene.cpp -o CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/TileDungeon/Engine/Scene.cpp -o CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.s
 
 CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.o: CMakeFiles/TileDungeon.dir/flags.make
-CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.o: /home/dennis/Projects/Raylib/TileDungeon/Engine/Transform.cpp
+CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.o: /home/dennis/Projects/TileDungeon/Engine/Transform.cpp
 CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.o: CMakeFiles/TileDungeon.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/Raylib/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.o -MF CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.o.d -o CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.o -c /home/dennis/Projects/Raylib/TileDungeon/Engine/Transform.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.o -MF CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.o.d -o CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.o -c /home/dennis/Projects/TileDungeon/Engine/Transform.cpp
 
 CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/Raylib/TileDungeon/Engine/Transform.cpp > CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/TileDungeon/Engine/Transform.cpp > CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.i
 
 CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/Raylib/TileDungeon/Engine/Transform.cpp -o CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/TileDungeon/Engine/Transform.cpp -o CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.s
 
 CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.o: CMakeFiles/TileDungeon.dir/flags.make
-CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.o: /home/dennis/Projects/Raylib/TileDungeon/Engine/Camera.cpp
+CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.o: /home/dennis/Projects/TileDungeon/Engine/Camera.cpp
 CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.o: CMakeFiles/TileDungeon.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/Raylib/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.o -MF CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.o.d -o CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.o -c /home/dennis/Projects/Raylib/TileDungeon/Engine/Camera.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.o -MF CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.o.d -o CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.o -c /home/dennis/Projects/TileDungeon/Engine/Camera.cpp
 
 CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/Raylib/TileDungeon/Engine/Camera.cpp > CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/TileDungeon/Engine/Camera.cpp > CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.i
 
 CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/Raylib/TileDungeon/Engine/Camera.cpp -o CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/TileDungeon/Engine/Camera.cpp -o CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.s
 
 CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.o: CMakeFiles/TileDungeon.dir/flags.make
-CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.o: /home/dennis/Projects/Raylib/TileDungeon/Engine/MeshRenderer.cpp
+CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.o: /home/dennis/Projects/TileDungeon/Engine/MeshRenderer.cpp
 CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.o: CMakeFiles/TileDungeon.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/Raylib/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.o -MF CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.o.d -o CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.o -c /home/dennis/Projects/Raylib/TileDungeon/Engine/MeshRenderer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.o -MF CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.o.d -o CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.o -c /home/dennis/Projects/TileDungeon/Engine/MeshRenderer.cpp
 
 CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/Raylib/TileDungeon/Engine/MeshRenderer.cpp > CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/TileDungeon/Engine/MeshRenderer.cpp > CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.i
 
 CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/Raylib/TileDungeon/Engine/MeshRenderer.cpp -o CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/TileDungeon/Engine/MeshRenderer.cpp -o CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.s
 
 CMakeFiles/TileDungeon.dir/Game/Player.cpp.o: CMakeFiles/TileDungeon.dir/flags.make
-CMakeFiles/TileDungeon.dir/Game/Player.cpp.o: /home/dennis/Projects/Raylib/TileDungeon/Game/Player.cpp
+CMakeFiles/TileDungeon.dir/Game/Player.cpp.o: /home/dennis/Projects/TileDungeon/Game/Player.cpp
 CMakeFiles/TileDungeon.dir/Game/Player.cpp.o: CMakeFiles/TileDungeon.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/Raylib/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/TileDungeon.dir/Game/Player.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Game/Player.cpp.o -MF CMakeFiles/TileDungeon.dir/Game/Player.cpp.o.d -o CMakeFiles/TileDungeon.dir/Game/Player.cpp.o -c /home/dennis/Projects/Raylib/TileDungeon/Game/Player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/TileDungeon.dir/Game/Player.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Game/Player.cpp.o -MF CMakeFiles/TileDungeon.dir/Game/Player.cpp.o.d -o CMakeFiles/TileDungeon.dir/Game/Player.cpp.o -c /home/dennis/Projects/TileDungeon/Game/Player.cpp
 
 CMakeFiles/TileDungeon.dir/Game/Player.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TileDungeon.dir/Game/Player.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/Raylib/TileDungeon/Game/Player.cpp > CMakeFiles/TileDungeon.dir/Game/Player.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/TileDungeon/Game/Player.cpp > CMakeFiles/TileDungeon.dir/Game/Player.cpp.i
 
 CMakeFiles/TileDungeon.dir/Game/Player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TileDungeon.dir/Game/Player.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/Raylib/TileDungeon/Game/Player.cpp -o CMakeFiles/TileDungeon.dir/Game/Player.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/TileDungeon/Game/Player.cpp -o CMakeFiles/TileDungeon.dir/Game/Player.cpp.s
 
 CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o: CMakeFiles/TileDungeon.dir/flags.make
-CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o: /home/dennis/Projects/Raylib/TileDungeon/Game/CharacterController.cpp
+CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o: /home/dennis/Projects/TileDungeon/Game/CharacterController.cpp
 CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o: CMakeFiles/TileDungeon.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/Raylib/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o -MF CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o.d -o CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o -c /home/dennis/Projects/Raylib/TileDungeon/Game/CharacterController.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o -MF CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o.d -o CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o -c /home/dennis/Projects/TileDungeon/Game/CharacterController.cpp
 
 CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/Raylib/TileDungeon/Game/CharacterController.cpp > CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/TileDungeon/Game/CharacterController.cpp > CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.i
 
 CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/Raylib/TileDungeon/Game/CharacterController.cpp -o CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/TileDungeon/Game/CharacterController.cpp -o CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.s
 
 CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o: CMakeFiles/TileDungeon.dir/flags.make
-CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o: /home/dennis/Projects/Raylib/TileDungeon/Game/JungleScene.cpp
+CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o: /home/dennis/Projects/TileDungeon/Game/JungleScene.cpp
 CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o: CMakeFiles/TileDungeon.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/Raylib/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o -MF CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o.d -o CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o -c /home/dennis/Projects/Raylib/TileDungeon/Game/JungleScene.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o -MF CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o.d -o CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o -c /home/dennis/Projects/TileDungeon/Game/JungleScene.cpp
 
 CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/Raylib/TileDungeon/Game/JungleScene.cpp > CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/TileDungeon/Game/JungleScene.cpp > CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.i
 
 CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/Raylib/TileDungeon/Game/JungleScene.cpp -o CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/TileDungeon/Game/JungleScene.cpp -o CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.s
 
 # Object files for target TileDungeon
 TileDungeon_OBJECTS = \
@@ -242,7 +242,7 @@ TileDungeon: /usr/lib/x86_64-linux-gnu/libGLX.so
 TileDungeon: /usr/lib/x86_64-linux-gnu/librt.a
 TileDungeon: /usr/lib/x86_64-linux-gnu/libm.so
 TileDungeon: CMakeFiles/TileDungeon.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/dennis/Projects/Raylib/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable TileDungeon"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/dennis/Projects/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable TileDungeon"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TileDungeon.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -254,6 +254,6 @@ CMakeFiles/TileDungeon.dir/clean:
 .PHONY : CMakeFiles/TileDungeon.dir/clean
 
 CMakeFiles/TileDungeon.dir/depend:
-	cd /home/dennis/Projects/Raylib/TileDungeon/Builds && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dennis/Projects/Raylib/TileDungeon /home/dennis/Projects/Raylib/TileDungeon /home/dennis/Projects/Raylib/TileDungeon/Builds /home/dennis/Projects/Raylib/TileDungeon/Builds /home/dennis/Projects/Raylib/TileDungeon/Builds/CMakeFiles/TileDungeon.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/dennis/Projects/TileDungeon/Builds && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dennis/Projects/TileDungeon /home/dennis/Projects/TileDungeon /home/dennis/Projects/TileDungeon/Builds /home/dennis/Projects/TileDungeon/Builds /home/dennis/Projects/TileDungeon/Builds/CMakeFiles/TileDungeon.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/TileDungeon.dir/depend
 

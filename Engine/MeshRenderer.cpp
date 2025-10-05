@@ -35,15 +35,22 @@ namespace Core
     /// @param materialIndex
     /// @param shaderVertPath
     /// @param shaderFragPath
-    void MeshRenderer::SetShader(const int materialIndex, Shader shader)
+    void MeshRenderer::SetShader(const int materialIndex, std::string vertexShaderPath, std::string fragmentShaderPath)
     {
+        std::shared_ptr<Shader> shader;
+        std::string id = vertexShaderPath + fragmentShaderPath;
+        if (!ResourcesService::TryGet<Shader>(id, shader))
+        {
+            return;
+        }
+
         // TODO: Checken ob auch ein korrekter Vert / Frag shader vorliegt. Ansonsten SEG FAULT
         if (materialIndex < 0 || materialIndex >= _model->materialCount)
         {
             printf("ERROR: Material index out of range\n");
             return;
         }
-        _model->materials[materialIndex].shader = shader;
+        _model->materials[materialIndex].shader = *shader;
     }
     /// @brief Set the alpha threshold for shaders with alpha cutout.
     /// @param threshold
@@ -60,14 +67,19 @@ namespace Core
 
     void MeshRenderer::SetBackfaceCulling(bool cull) { _backfaceCulling = cull; }
 
-    void MeshRenderer::SetTexture(int materialIndex, Texture texture)
+    void MeshRenderer::SetTexture(int materialIndex, std::string texturePath)
     {
         if (materialIndex < 0 || materialIndex >= _model->materialCount)
         {
             printf("ERROR: Material index out of range\n");
             return;
         }
-        _model->materials[materialIndex].maps[MATERIAL_MAP_DIFFUSE].texture = texture;
+
+        std::shared_ptr<Texture> texture;
+        if (ResourcesService::TryGet<Texture>("../Resources/JungleGround.png", texture))
+        {
+            _model->materials[materialIndex].maps[MATERIAL_MAP_DIFFUSE].texture = *texture;
+        }
     }
 
     void MeshRenderer::OnUpdate()
@@ -87,23 +99,17 @@ namespace Core
             return;
         }
 
+        // TODO: Unperformant but works for now
+        if (_backfaceCulling)
+            rlEnableBackfaceCulling();
+        else
+            rlDisableBackfaceCulling();
+
         DrawModelEx(*_model, _transform->GetPosition(), {0, 1, 0}, 0, _transform->GetScale(), WHITE);
 
-        return;
-        /*
-                // TODO: Unperformant but works for now
-                if (_backfaceCulling)
-                    rlEnableBackfaceCulling();
-                else
-                    rlDisableBackfaceCulling();
-
-                auto transform = Component::GetEntity()->GetComponent<Transform>();
-                DrawModelEx(*_model, transform->GetPosition(), transform->GetEulerAngles(), 0, transform->GetScale(), WHITE);
-
-                if (!_backfaceCulling)
-                    rlEnableBackfaceCulling();
-                else
-                    rlDisableBackfaceCulling();
-          */
-    }
+        if (!_backfaceCulling)
+            rlEnableBackfaceCulling();
+        else
+            rlDisableBackfaceCulling();
+        }
 }
