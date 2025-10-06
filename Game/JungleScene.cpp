@@ -16,32 +16,10 @@ JungleScene::JungleScene() : Scene()
     ResourcesService::Load<Shader>(alphaCutoutShaderPaths);
 
     std::vector<std::string> diffuseShaderPaths;
-    diffuseShaderPaths.emplace_back("../Resources/Shader/DiffuseLightmap.vs");
-    diffuseShaderPaths.emplace_back("../Resources/Shader/DiffuseLightmap.fs");
+    diffuseShaderPaths.emplace_back("../Resources/Shader/OpaquePS1.vs");
+    diffuseShaderPaths.emplace_back("../Resources/Shader/OpaquePS1.fs");
     ResourcesService::Load<Shader>(diffuseShaderPaths);
-    /*
-    std::shared_ptr<Model> treeModel;
-    if (ResourcesController::TryGetModel("../Resources/PalmTree/PalmTrees.glb", treeModel))
-    {
-        GenTextureMipmaps(&treeModel->materials[0].maps[MATERIAL_MAP_DIFFUSE].texture);
-        SetTextureFilter(treeModel->materials[0].maps[MATERIAL_MAP_DIFFUSE].texture, TEXTURE_FILTER_POINT); // ⬅️ Für Mipmaps notwendig
-        GenTextureMipmaps(&treeModel->materials[1].maps[MATERIAL_MAP_DIFFUSE].texture);
-        SetTextureFilter(treeModel->materials[1].maps[MATERIAL_MAP_DIFFUSE].texture, TEXTURE_FILTER_POINT); // ⬅️ Für Mipmaps notwendig
-    }
 
-     std::shared_ptr<Model> quadModel;
-     if (ResourcesController::TryGetModel("../Resources/Quad.glb", quadModel))
-     {
-         _jungleGroundTexture = LoadTexture("../Resources/JungleGround.png");
-         GenTextureMipmaps(&_jungleGroundTexture);                     // ⬅️ Mipmaps generieren
-         SetTextureFilter(_jungleGroundTexture, TEXTURE_FILTER_POINT); // ⬅️ Für Mipmaps notwendig
-     }
-
-    _alphaCutoutShader = LoadShader("../Resources/Shader/AlphaCutout.vs", "../Resources/Shader/AlphaCutout.fs");
-    int locThreshold = GetShaderLocation(_alphaCutoutShader, "alphaThreshold");
-    float threshold = 0.8f;
-    SetShaderValue(_alphaCutoutShader, locThreshold, &threshold, SHADER_UNIFORM_FLOAT);
-*/
     // Place a few trees
     for (size_t i = 0; i < 200; i++)
     {
@@ -60,7 +38,7 @@ JungleScene::JungleScene() : Scene()
     auto r = levelModelEntity->AddComponent<Core::MeshRenderer>();
     r->SetModel("../Resources/ArtDungeonScene1/ArtDungeonScene1.glb");
     r->SetBackfaceCulling(true);
-    r->SetShader(-1, "../Resources/Shader/DiffuseLightmap.vs", "../Resources/Shader/DiffuseLightmap.fs");
+    r->SetShader(-1, "../Resources/Shader/OpaquePS1.vs", "../Resources/Shader/OpaquePS1.fs");
     // r->SetTexture(1, "texture0", "../Resources/ArtDungeonScene1/Tiles_Moss.jpg");
     // r->SetTexture(1, "texture1", "../Resources/ArtDungeonScene1/Lightmap.png");
 
@@ -81,8 +59,8 @@ JungleScene::~JungleScene()
     ResourcesService::Unload<Shader>(shaderPaths);
 
     std::vector<std::string> diffuseShaderPaths;
-    diffuseShaderPaths.emplace_back("../Resources/Shader/DiffuseLightmap.vs");
-    diffuseShaderPaths.emplace_back("../Resources/Shader/DiffuseLightmap.fs");
+    diffuseShaderPaths.emplace_back("../Resources/Shader/OpaquePS1.vs");
+    diffuseShaderPaths.emplace_back("../Resources/Shader/OpaquePS1.fs");
     ResourcesService::Unload<Shader>(diffuseShaderPaths);
 }
 
