@@ -24,16 +24,26 @@ namespace Core
     class Component
     {
     public:
-        virtual void OnUpdate() {}
-        virtual void OnEntityDisable() {}
-        virtual void OnEntityEnable() {}
-
         /// @brief Will be called by Entity.AddComponent
         void SetEntity(Core::Entity *entity) { _entity = entity; }
         Core::Entity *GetEntity() { return _entity; }
 
+        void EntityEnable() { OnEntityEnable(); };
+        void EntityDisable() { OnEntityDisable(); };
+        void Enable() { OnEnable(); };
+        void Disable() { OnDisable(); };
+        void Update() { OnUpdate(); };
+        void Draw() { OnDraw(); };
+
     private:
         Core::Entity *_entity;
+
+        virtual void OnUpdate() {}
+        virtual void OnDraw() {}
+        virtual void OnEntityDisable() {}
+        virtual void OnEntityEnable() {}
+        virtual void OnEnable() {};
+        virtual void OnDisable() {};
     };
 
     /// @brief Game Entity that holds components which get updates based on the Entities state.
@@ -42,18 +52,20 @@ namespace Core
     public:
         std::string Name;
 
-        Entity();
+        Entity(std::shared_ptr<Core::Scene> scene);
         ~Entity();
 
-        virtual void OnEnable();
-        virtual void OnDisable();
-        virtual void OnUpdate();
+        void Enable();
+        void Disable();
+        void Update();
+        void Draw();
 
         void SetEnabled(bool enabled);
         bool IsEnabled() const;
         int GetId() const { return _id; }
+        std::shared_ptr<Core::Scene> GetScene() const { return _scene; }
 
-        // TODO: ADD und GET in cpp file
+        // TODO: ADD und GET in tpp file ?
         template <typename T, typename... Args>
         std::shared_ptr<T> AddComponent(Args &&...args)
         {
@@ -75,14 +87,19 @@ namespace Core
         }
 
     private:
-        unsigned int _id;
         bool _enabled;
-        std::unordered_map<std::type_index, std::shared_ptr<Component>> _components;
+        unsigned int _id;
         static unsigned int _nextId;
+        std::shared_ptr<Core::Scene> _scene; // The scene this entity belongs to
+        std::unordered_map<std::type_index, std::shared_ptr<Component>> _components;
+
+        virtual void OnEnable() {};
+        virtual void OnDisable() {};
+        virtual void OnUpdate() {};
     };
 
     /// @brief Right now a scene is just a Container for Entities.
-    class Scene
+    class Scene : public std::enable_shared_from_this<Scene>
     {
     public:
         Scene();
@@ -93,14 +110,30 @@ namespace Core
 
         /// @brief Updates the Scene and all its Entities. Call this in your main game loop.
         void Update();
+        void Draw();
         void Enable();
+        void Disable();
 
     private:
         std::unordered_map<int, std::shared_ptr<Core::Entity>> _entities;
 
         /// @brief Will be called every frame as long as this entity is enabled.
         /// Override this in your custom Scene class. OnUpdate is called before all entities get updated.
-        virtual void OnUpdate();
+        // virtual void OnUpdate() {};
+        // virtual void OnDraw() {};
+    };
+
+    class SceneManager
+    {
+    public:
+        /// @brief Creates a new scene with the given name or returns an existing one if it already exists.
+        static std::shared_ptr<Core::Scene> CreateScene(std::string name);
+
+        /// @brief Updates all registered scenes. Call this in your main game loop.
+        static void Update();
+
+    private:
+        static std::unordered_map<std::string, std::shared_ptr<Core::Scene>> _scenes;
     };
 
 #pragma endregion
@@ -149,14 +182,12 @@ namespace Core
         Camera();
         ~Camera();
 
-        void Update(Core::Transform &transform);
-        void BeginMode3D();
-        void EndMode3D();
-        void SetPosition(Vector3 position);
+        void Render();
         void SetTarget(Vector3 target);
         void SetUp(Vector3 up);
         void SetFov(float fov);
         void SetProjection(ProjectionType projection);
+        std::shared_ptr<RenderTexture> GetRenderTexture() const { return _renderTexture; }
 
         Vector3 GetPosition();
         Vector3 GetTarget();
@@ -165,7 +196,10 @@ namespace Core
         ProjectionType GetProjection();
 
     private:
-        ::Camera _raylibCamera; // Make sure we can use this camera in raylib functions
+        std::shared_ptr<::Camera> _raylibCamera; // Make sure we can use this camera in raylib functions
+        std::shared_ptr<RenderTexture> _renderTexture;
+
+        void OnUpdate() override;
     };
 
     class MeshRenderer : public Component
@@ -182,7 +216,8 @@ namespace Core
 
         void OnEntityEnable() override;
         void OnEntityDisable() override;
-        void OnUpdate() override;
+        //        void OnUpdate() override;
+        void OnDraw() override;
 
     private:
         std::shared_ptr<Model> _model;
@@ -190,6 +225,27 @@ namespace Core
         std::shared_ptr<Core::Transform> _transform;
         bool _cullBackfaces = true;
         bool _valid; // will be false if theres no Model set.
+    };
+
+    class TextRenderer : public Component
+    {
+    public:
+        TextRenderer();
+        ~TextRenderer();
+        void SetText(const std::string text) { _text = text; }
+        void SetFontSize(int fontSize) { _fontSize = fontSize; }
+        void SetColor(Color color) { _color = color; }
+        void SetPosition(int x, int y) { _position = {(float)x, (float)y}; }
+        void SetFont(std::string fontPath);
+
+    private:
+        void OnDraw() override;
+
+        std::string _text;
+        int _fontSize;
+        Color _color;
+        Vector2 _position;
+        Font _font;
     };
 
 #pragma endregion

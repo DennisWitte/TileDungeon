@@ -167,10 +167,38 @@ CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/TileDungeon/Engine/MeshRenderer.cpp -o CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.s
 
+CMakeFiles/TileDungeon.dir/Engine/SceneManager.cpp.o: CMakeFiles/TileDungeon.dir/flags.make
+CMakeFiles/TileDungeon.dir/Engine/SceneManager.cpp.o: /home/dennis/Projects/TileDungeon/Engine/SceneManager.cpp
+CMakeFiles/TileDungeon.dir/Engine/SceneManager.cpp.o: CMakeFiles/TileDungeon.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/TileDungeon.dir/Engine/SceneManager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Engine/SceneManager.cpp.o -MF CMakeFiles/TileDungeon.dir/Engine/SceneManager.cpp.o.d -o CMakeFiles/TileDungeon.dir/Engine/SceneManager.cpp.o -c /home/dennis/Projects/TileDungeon/Engine/SceneManager.cpp
+
+CMakeFiles/TileDungeon.dir/Engine/SceneManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TileDungeon.dir/Engine/SceneManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/TileDungeon/Engine/SceneManager.cpp > CMakeFiles/TileDungeon.dir/Engine/SceneManager.cpp.i
+
+CMakeFiles/TileDungeon.dir/Engine/SceneManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TileDungeon.dir/Engine/SceneManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/TileDungeon/Engine/SceneManager.cpp -o CMakeFiles/TileDungeon.dir/Engine/SceneManager.cpp.s
+
+CMakeFiles/TileDungeon.dir/Engine/TextRenderer.cpp.o: CMakeFiles/TileDungeon.dir/flags.make
+CMakeFiles/TileDungeon.dir/Engine/TextRenderer.cpp.o: /home/dennis/Projects/TileDungeon/Engine/TextRenderer.cpp
+CMakeFiles/TileDungeon.dir/Engine/TextRenderer.cpp.o: CMakeFiles/TileDungeon.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/TileDungeon.dir/Engine/TextRenderer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Engine/TextRenderer.cpp.o -MF CMakeFiles/TileDungeon.dir/Engine/TextRenderer.cpp.o.d -o CMakeFiles/TileDungeon.dir/Engine/TextRenderer.cpp.o -c /home/dennis/Projects/TileDungeon/Engine/TextRenderer.cpp
+
+CMakeFiles/TileDungeon.dir/Engine/TextRenderer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TileDungeon.dir/Engine/TextRenderer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dennis/Projects/TileDungeon/Engine/TextRenderer.cpp > CMakeFiles/TileDungeon.dir/Engine/TextRenderer.cpp.i
+
+CMakeFiles/TileDungeon.dir/Engine/TextRenderer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TileDungeon.dir/Engine/TextRenderer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dennis/Projects/TileDungeon/Engine/TextRenderer.cpp -o CMakeFiles/TileDungeon.dir/Engine/TextRenderer.cpp.s
+
 CMakeFiles/TileDungeon.dir/Game/Player.cpp.o: CMakeFiles/TileDungeon.dir/flags.make
 CMakeFiles/TileDungeon.dir/Game/Player.cpp.o: /home/dennis/Projects/TileDungeon/Game/Player.cpp
 CMakeFiles/TileDungeon.dir/Game/Player.cpp.o: CMakeFiles/TileDungeon.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/TileDungeon.dir/Game/Player.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/TileDungeon.dir/Game/Player.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Game/Player.cpp.o -MF CMakeFiles/TileDungeon.dir/Game/Player.cpp.o.d -o CMakeFiles/TileDungeon.dir/Game/Player.cpp.o -c /home/dennis/Projects/TileDungeon/Game/Player.cpp
 
 CMakeFiles/TileDungeon.dir/Game/Player.cpp.i: cmake_force
@@ -184,7 +212,7 @@ CMakeFiles/TileDungeon.dir/Game/Player.cpp.s: cmake_force
 CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o: CMakeFiles/TileDungeon.dir/flags.make
 CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o: /home/dennis/Projects/TileDungeon/Game/CharacterController.cpp
 CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o: CMakeFiles/TileDungeon.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o -MF CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o.d -o CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o -c /home/dennis/Projects/TileDungeon/Game/CharacterController.cpp
 
 CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.i: cmake_force
@@ -198,7 +226,7 @@ CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.s: cmake_force
 CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o: CMakeFiles/TileDungeon.dir/flags.make
 CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o: /home/dennis/Projects/TileDungeon/Game/JungleScene.cpp
 CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o: CMakeFiles/TileDungeon.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/dennis/Projects/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o -MF CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o.d -o CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o -c /home/dennis/Projects/TileDungeon/Game/JungleScene.cpp
 
 CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.i: cmake_force
@@ -218,6 +246,8 @@ TileDungeon_OBJECTS = \
 "CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.o" \
 "CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.o" \
 "CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.o" \
+"CMakeFiles/TileDungeon.dir/Engine/SceneManager.cpp.o" \
+"CMakeFiles/TileDungeon.dir/Engine/TextRenderer.cpp.o" \
 "CMakeFiles/TileDungeon.dir/Game/Player.cpp.o" \
 "CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o" \
 "CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o"
@@ -232,6 +262,8 @@ TileDungeon: CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.o
 TileDungeon: CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.o
 TileDungeon: CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.o
 TileDungeon: CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.o
+TileDungeon: CMakeFiles/TileDungeon.dir/Engine/SceneManager.cpp.o
+TileDungeon: CMakeFiles/TileDungeon.dir/Engine/TextRenderer.cpp.o
 TileDungeon: CMakeFiles/TileDungeon.dir/Game/Player.cpp.o
 TileDungeon: CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o
 TileDungeon: CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o
@@ -242,7 +274,7 @@ TileDungeon: /usr/lib/x86_64-linux-gnu/libGLX.so
 TileDungeon: /usr/lib/x86_64-linux-gnu/librt.a
 TileDungeon: /usr/lib/x86_64-linux-gnu/libm.so
 TileDungeon: CMakeFiles/TileDungeon.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/dennis/Projects/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable TileDungeon"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/dennis/Projects/TileDungeon/Builds/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable TileDungeon"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TileDungeon.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

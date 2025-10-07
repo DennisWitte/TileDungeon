@@ -12,6 +12,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/dennis/Projects/TileDungeon/Engine/Entity.cpp" "CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.o" "gcc" "CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.o.d"
   "/home/dennis/Projects/TileDungeon/Engine/MeshRenderer.cpp" "CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.o" "gcc" "CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.o.d"
   "/home/dennis/Projects/TileDungeon/Engine/Scene.cpp" "CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.o" "gcc" "CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.o.d"
+  "/home/dennis/Projects/TileDungeon/Engine/SceneManager.cpp" "CMakeFiles/TileDungeon.dir/Engine/SceneManager.cpp.o" "gcc" "CMakeFiles/TileDungeon.dir/Engine/SceneManager.cpp.o.d"
+  "/home/dennis/Projects/TileDungeon/Engine/TextRenderer.cpp" "CMakeFiles/TileDungeon.dir/Engine/TextRenderer.cpp.o" "gcc" "CMakeFiles/TileDungeon.dir/Engine/TextRenderer.cpp.o.d"
   "/home/dennis/Projects/TileDungeon/Engine/Transform.cpp" "CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.o" "gcc" "CMakeFiles/TileDungeon.dir/Engine/Transform.cpp.o.d"
   "/home/dennis/Projects/TileDungeon/Game.cpp" "CMakeFiles/TileDungeon.dir/Game.cpp.o" "gcc" "CMakeFiles/TileDungeon.dir/Game.cpp.o.d"
   "/home/dennis/Projects/TileDungeon/Game/CharacterController.cpp" "CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o" "gcc" "CMakeFiles/TileDungeon.dir/Game/CharacterController.cpp.o.d"

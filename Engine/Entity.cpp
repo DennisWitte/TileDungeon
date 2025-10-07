@@ -4,40 +4,53 @@ namespace Core
 {
     unsigned int Core::Entity::_nextId = 0;
 
-    Entity::Entity()
+    Entity::Entity(std::shared_ptr<Core::Scene> scene)
     {
         Name = "";
         _id = _nextId;
         _nextId++;
+        _scene = scene;
         SetEnabled(true);
     }
     Entity::~Entity() {}
 
     /// @brief Will be called when the Entity gets enabled
-    void Entity::OnEnable()
+    void Entity::Enable()
     {
         for (const auto &[type, component] : _components)
         {
-            component->OnEntityEnable();
+            component->EntityEnable();
         }
     }
     /// @brief Will be called when the Entity gets disabled
-    void Entity::OnDisable()
+    void Entity::Disable()
     {
         for (const auto &[type, component] : _components)
         {
-            component->OnEntityDisable();
+            component->EntityDisable();
         }
     }
-    /// @brief Will be called every frame and updates all Components on this Entity
-    void Entity::OnUpdate()
+    /// @brief Will be called every frame and updates all Components on this Entity. Will be called before drawing.
+    void Entity::Update()
     {
         if (!_enabled)
             return;
 
         for (const auto &[type, component] : _components)
         {
-            component->OnUpdate();
+            component->Update();
+        }
+    }
+
+    /// @brief Will be called every frame during the draw context. Use draw commands here.
+    void Entity::Draw()
+    {
+        if (!_enabled)
+            return;
+
+        for (const auto &[type, component] : _components)
+        {
+            component->Draw();
         }
     }
 

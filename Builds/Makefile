@@ -329,6 +329,54 @@ Engine/Scene.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TileDungeon.dir/build.make CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.s
 .PHONY : Engine/Scene.cpp.s
 
+Engine/SceneManager.o: Engine/SceneManager.cpp.o
+.PHONY : Engine/SceneManager.o
+
+# target to build an object file
+Engine/SceneManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TileDungeon.dir/build.make CMakeFiles/TileDungeon.dir/Engine/SceneManager.cpp.o
+.PHONY : Engine/SceneManager.cpp.o
+
+Engine/SceneManager.i: Engine/SceneManager.cpp.i
+.PHONY : Engine/SceneManager.i
+
+# target to preprocess a source file
+Engine/SceneManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TileDungeon.dir/build.make CMakeFiles/TileDungeon.dir/Engine/SceneManager.cpp.i
+.PHONY : Engine/SceneManager.cpp.i
+
+Engine/SceneManager.s: Engine/SceneManager.cpp.s
+.PHONY : Engine/SceneManager.s
+
+# target to generate assembly for a file
+Engine/SceneManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TileDungeon.dir/build.make CMakeFiles/TileDungeon.dir/Engine/SceneManager.cpp.s
+.PHONY : Engine/SceneManager.cpp.s
+
+Engine/TextRenderer.o: Engine/TextRenderer.cpp.o
+.PHONY : Engine/TextRenderer.o
+
+# target to build an object file
+Engine/TextRenderer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TileDungeon.dir/build.make CMakeFiles/TileDungeon.dir/Engine/TextRenderer.cpp.o
+.PHONY : Engine/TextRenderer.cpp.o
+
+Engine/TextRenderer.i: Engine/TextRenderer.cpp.i
+.PHONY : Engine/TextRenderer.i
+
+# target to preprocess a source file
+Engine/TextRenderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TileDungeon.dir/build.make CMakeFiles/TileDungeon.dir/Engine/TextRenderer.cpp.i
+.PHONY : Engine/TextRenderer.cpp.i
+
+Engine/TextRenderer.s: Engine/TextRenderer.cpp.s
+.PHONY : Engine/TextRenderer.s
+
+# target to generate assembly for a file
+Engine/TextRenderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TileDungeon.dir/build.make CMakeFiles/TileDungeon.dir/Engine/TextRenderer.cpp.s
+.PHONY : Engine/TextRenderer.cpp.s
+
 Engine/Transform.o: Engine/Transform.cpp.o
 .PHONY : Engine/Transform.o
 
@@ -503,6 +551,12 @@ help:
 	@echo "... Engine/Scene.o"
 	@echo "... Engine/Scene.i"
 	@echo "... Engine/Scene.s"
+	@echo "... Engine/SceneManager.o"
+	@echo "... Engine/SceneManager.i"
+	@echo "... Engine/SceneManager.s"
+	@echo "... Engine/TextRenderer.o"
+	@echo "... Engine/TextRenderer.i"
+	@echo "... Engine/TextRenderer.s"
 	@echo "... Engine/Transform.o"
 	@echo "... Engine/Transform.i"
 	@echo "... Engine/Transform.s"

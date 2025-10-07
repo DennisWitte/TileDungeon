@@ -2,14 +2,9 @@
 using namespace Core;
 using namespace std;
 
-JungleScene::JungleScene() : Scene()
+JungleScene::JungleScene()
 {
-    ResourcesService::Load<Model>("../Resources/PalmTree/PalmTrees.glb");
-    ResourcesService::Load<Model>("../Resources/ArtDungeonScene1/ArtDungeonScene1.glb");
-
-    ResourcesService::Load<Model>("../Resources/Quad.glb");
-    ResourcesService::Load<Texture>("../Resources/JungleGround.png");
-    ResourcesService::Load<Texture>("../Resources/ArtDungeonScene1/Tiles_Moss.jpg");
+    // Load Shader
     std::vector<std::string> alphaCutoutShaderPaths;
     alphaCutoutShaderPaths.emplace_back("../Resources/Shader/AlphaCutout.vs");
     alphaCutoutShaderPaths.emplace_back("../Resources/Shader/AlphaCutout.fs");
@@ -20,15 +15,24 @@ JungleScene::JungleScene() : Scene()
     diffuseShaderPaths.emplace_back("../Resources/Shader/OpaquePS1.fs");
     ResourcesService::Load<Shader>(diffuseShaderPaths);
 
+    // Load Models
+    ResourcesService::Load<Model>("../Resources/PalmTree/PalmTrees.glb");
+    ResourcesService::Load<Model>("../Resources/ArtDungeonScene1/ArtDungeonScene1.glb");
+    ResourcesService::Load<Model>("../Resources/Quad.glb");
+
+    // ResourcesService::Load<Texture>("../Resources/JungleGround.png");
+    // ResourcesService::Load<Texture>("../Resources/ArtDungeonScene1/Tiles_Moss.jpg");
+
     // Place a few trees
     for (size_t i = 0; i < 200; i++)
     {
         // PlaceRandomTree();
     }
 
-    // GenerateGround();
+    scene = SceneManager::CreateScene("JungleScene");
 
-    std::shared_ptr<Core::Entity> levelModelEntity = CreateEntity();
+    // DungeonModel
+    std::shared_ptr<Core::Entity> levelModelEntity = scene->CreateEntity();
     levelModelEntity->Name = "ArtDungeonScene1";
     auto t = levelModelEntity->AddComponent<Core::Transform>();
     t->SetPosition({0, 0, 0});
@@ -42,17 +46,24 @@ JungleScene::JungleScene() : Scene()
     // r->SetTexture(1, "texture0", "../Resources/ArtDungeonScene1/Tiles_Moss.jpg");
     // r->SetTexture(1, "texture1", "../Resources/ArtDungeonScene1/Lightmap.png");
 
-    Enable();
+    // Camera
+    std::shared_ptr<Core::Entity> cameraEntity = scene->CreateEntity();
+    cameraEntity->Name = "MainCamera";
+    auto cameraTransform = cameraEntity->AddComponent<Core::Transform>();
+    cameraTransform->SetPosition({5.0f, 5.0f, 5.0f});
+
+    auto camera = cameraEntity->AddComponent<Core::Camera>();
+    camera->SetTarget({0.0f, 0.0f, 0.0f});
+    camera->SetUp({0.0f, 1.0f, 0.0f});
+    camera->SetFov(45.0f);
+    camera->SetProjection(Core::Camera::CAMERA_PERSPECTIVE);
+
+    scene->Enable();
 }
 
 JungleScene::~JungleScene()
 {
-    ResourcesService::Unload<Model>("../Resources/PalmTree/PalmTrees.glb");
-    ResourcesService::Unload<Model>("../Resources/Quad.glb");
-    ResourcesService::Unload<Texture>("../Resources/JungleGround.png");
-    ResourcesService::Unload<Model>("../Resources/ArtDungeonScene1/ArtDungeonScene1.glb");
-    ResourcesService::Unload<Texture>("../Resources/ArtDungeonScene1/Tiles_Moss.jpg");
-
+    // Unload Shader
     std::vector<std::string> shaderPaths;
     shaderPaths.emplace_back("../Resources/Shader/AlphaCutout.vs");
     shaderPaths.emplace_back("../Resources/Shader/AlphaCutout.fs");
@@ -62,11 +73,23 @@ JungleScene::~JungleScene()
     diffuseShaderPaths.emplace_back("../Resources/Shader/OpaquePS1.vs");
     diffuseShaderPaths.emplace_back("../Resources/Shader/OpaquePS1.fs");
     ResourcesService::Unload<Shader>(diffuseShaderPaths);
+
+    // Unload Models
+    ResourcesService::Unload<Model>("../Resources/PalmTree/PalmTrees.glb");
+    ResourcesService::Unload<Model>("../Resources/Quad.glb");
+    ResourcesService::Unload<Model>("../Resources/ArtDungeonScene1/ArtDungeonScene1.glb");
+    //    ResourcesService::Unload<Texture>("../Resources/ArtDungeonScene1/Tiles_Moss.jpg");
+    //  ResourcesService::Unload<Texture>("../Resources/JungleGround.png");
+}
+
+void JungleScene::Draw()
+{
+    scene->Draw();
 }
 
 void JungleScene::PlaceRandomTree()
 {
-    std::shared_ptr<Core::Entity> treeEntity = CreateEntity();
+    std::shared_ptr<Core::Entity> treeEntity;
     treeEntity->Name = "PalmTree";
     auto t = treeEntity->AddComponent<Core::Transform>();
     t->SetPosition({(float)GetRandomValue(0, 100), 0, (float)GetRandomValue(0, 100)});
@@ -87,7 +110,7 @@ void JungleScene::GenerateGround()
     float z = 0;
     for (int i = 0; i < tileCount; i++)
     {
-        shared_ptr<Entity> groundEntity = CreateEntity();
+        shared_ptr<Entity> groundEntity;
         groundEntity->Name = "Ground " + to_string(i);
         auto t = groundEntity->AddComponent<Core::Transform>();
         t->SetPosition({x, 0, z});

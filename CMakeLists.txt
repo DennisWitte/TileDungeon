@@ -22,7 +22,9 @@ add_executable(
     Engine/Transform.cpp
     Engine/Camera.cpp
     Engine/MeshRenderer.cpp
-
+    Engine/SceneManager.cpp
+    Engine/TextRenderer.cpp
+    
     Game/Player.cpp
     Game/CharacterController.cpp
     Game/JungleScene.cpp

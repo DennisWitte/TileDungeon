@@ -15,7 +15,7 @@ namespace Core
     /// @return
     std::shared_ptr<Core::Entity> Scene::CreateEntity()
     {
-        std::shared_ptr<Core::Entity> entity = std::make_shared<Core::Entity>();
+        std::shared_ptr<Core::Entity> entity = std::make_shared<Core::Entity>(shared_from_this());
         _entities[entity->GetId()] = entity;
         return entity;
     }
@@ -30,21 +30,35 @@ namespace Core
     {
         for (const auto &[id, e] : _entities)
         {
-            e->OnEnable();
+            e->Enable();
+        }
+    }
+
+    void Scene::Disable()
+    {
+        for (const auto &[id, e] : _entities)
+        {
+            e->Disable();
         }
     }
 
     void Scene::Update()
     {
-        OnUpdate();
+        //  OnUpdate();
 
         for (auto &pair : _entities)
         {
-            pair.second->OnUpdate();
+            pair.second->Update();
         }
     }
 
-    void Scene::OnUpdate()
+    void Scene::Draw()
     {
+        // OnDraw();
+
+        for (auto &pair : _entities)
+        {
+            pair.second->Draw();
+        }
     }
 }

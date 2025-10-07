@@ -44,6 +44,19 @@ namespace Core
             return;
         }
 
+        // Standardwerte
+        float paletteBits = 5.0f;
+        float ditherStrength = 0.5f;
+        Vector3 fogColor = {0.5f, 0.5f, 0.6f}; // graublauer Nebel
+        float fogStart = 5.0f;
+        float fogEnd = 50.0f;
+
+        SetShaderValue(*shader, GetShaderLocation(*shader, "paletteBits"), &paletteBits, SHADER_UNIFORM_FLOAT);
+        SetShaderValue(*shader, GetShaderLocation(*shader, "ditherStrength"), &ditherStrength, SHADER_UNIFORM_FLOAT);
+        SetShaderValue(*shader, GetShaderLocation(*shader, "fogColor"), &fogColor, SHADER_UNIFORM_VEC3);
+        SetShaderValue(*shader, GetShaderLocation(*shader, "fogStart"), &fogStart, SHADER_UNIFORM_FLOAT);
+        SetShaderValue(*shader, GetShaderLocation(*shader, "fogEnd"), &fogEnd, SHADER_UNIFORM_FLOAT);
+
         // TODO: Checken ob auch ein korrekter Vert / Frag shader vorliegt. Ansonsten SEG FAULT
         if (materialIndex > 0 && materialIndex < _model->materialCount)
         {
@@ -120,7 +133,7 @@ namespace Core
         }
     }
 
-    void MeshRenderer::OnUpdate()
+    void MeshRenderer::OnDraw()
     {
         if (!_valid)
             return;
@@ -136,6 +149,11 @@ namespace Core
             printf("FEHLER: _model hat keine Meshes!\n");
             return;
         }
+
+        if (_transform == nullptr)
+            return;
+        if (_model == nullptr)
+            return;
 
         // TODO: Unperformant but works for now
         if (_backfaceCulling)

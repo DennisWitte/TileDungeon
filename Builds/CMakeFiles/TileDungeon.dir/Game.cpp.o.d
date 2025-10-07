@@ -215,4 +215,5 @@ CMakeFiles/TileDungeon.dir/Game.cpp.o: \
  /home/dennis/Projects/TileDungeon/Engine/ResourceManagement/ResourcesService.hpp \
  /home/dennis/Projects/TileDungeon/Engine/ResourceManagement/ResourcesController.hpp \
  /home/dennis/Projects/TileDungeon/Engine/ResourceManagement/../../raylib/src/raylib.h \
- /home/dennis/Projects/TileDungeon/Game/JungleScene.hpp
+ /home/dennis/Projects/TileDungeon/Game/JungleScene.hpp \
+ /home/dennis/Projects/TileDungeon/Engine/RenderManager.hpp

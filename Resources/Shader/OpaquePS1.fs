@@ -1,16 +1,16 @@
 #version 330 core
 
-in noperspective vec2 vTexCoord;
+noperspective in vec2 vTexCoord;
 in vec4 vColor;
 in float vViewZ;
 
 uniform sampler2D texture0;
 
-uniform float paletteBits;     // Quantisierungstiefe
-uniform float ditherStrength;  // Stärke Dither
-uniform vec3 fogColor;         // Fog-Farbe
-uniform float fogStart;        // Distanz ab der Fog einsetzt
-uniform float fogEnd;          // Distanz bei voller Dichte
+uniform float paletteBits;
+uniform float ditherStrength;
+uniform vec3 fogColor;
+uniform float fogStart;
+uniform float fogEnd;
 
 out vec4 fragColor;
 
@@ -34,7 +34,6 @@ void main()
     vec3 baseColor = q;
     float alpha = col.a;
 
-    // --- Fog Berechnung ---
     float fogFactor = clamp((fogEnd - vViewZ) / (fogEnd - fogStart), 0.0, 1.0);
     vec3 finalColor = mix(fogColor, baseColor, fogFactor);
 
