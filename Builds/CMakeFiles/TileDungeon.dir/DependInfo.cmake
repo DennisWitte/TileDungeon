@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/dennis/Projects/TileDungeon/Engine/Camera.cpp" "CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.o" "gcc" "CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.o.d"
+  "/home/dennis/Projects/TileDungeon/Engine/Component.cpp" "CMakeFiles/TileDungeon.dir/Engine/Component.cpp.o" "gcc" "CMakeFiles/TileDungeon.dir/Engine/Component.cpp.o.d"
   "/home/dennis/Projects/TileDungeon/Engine/Entity.cpp" "CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.o" "gcc" "CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.o.d"
   "/home/dennis/Projects/TileDungeon/Engine/MeshRenderer.cpp" "CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.o" "gcc" "CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.o.d"
   "/home/dennis/Projects/TileDungeon/Engine/Scene.cpp" "CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.o" "gcc" "CMakeFiles/TileDungeon.dir/Engine/Scene.cpp.o.d"

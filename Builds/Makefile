@@ -257,6 +257,30 @@ Engine/Camera.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TileDungeon.dir/build.make CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.s
 .PHONY : Engine/Camera.cpp.s
 
+Engine/Component.o: Engine/Component.cpp.o
+.PHONY : Engine/Component.o
+
+# target to build an object file
+Engine/Component.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TileDungeon.dir/build.make CMakeFiles/TileDungeon.dir/Engine/Component.cpp.o
+.PHONY : Engine/Component.cpp.o
+
+Engine/Component.i: Engine/Component.cpp.i
+.PHONY : Engine/Component.i
+
+# target to preprocess a source file
+Engine/Component.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TileDungeon.dir/build.make CMakeFiles/TileDungeon.dir/Engine/Component.cpp.i
+.PHONY : Engine/Component.cpp.i
+
+Engine/Component.s: Engine/Component.cpp.s
+.PHONY : Engine/Component.s
+
+# target to generate assembly for a file
+Engine/Component.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TileDungeon.dir/build.make CMakeFiles/TileDungeon.dir/Engine/Component.cpp.s
+.PHONY : Engine/Component.cpp.s
+
 Engine/Entity.o: Engine/Entity.cpp.o
 .PHONY : Engine/Entity.o
 
@@ -542,6 +566,9 @@ help:
 	@echo "... Engine/Camera.o"
 	@echo "... Engine/Camera.i"
 	@echo "... Engine/Camera.s"
+	@echo "... Engine/Component.o"
+	@echo "... Engine/Component.i"
+	@echo "... Engine/Component.s"
 	@echo "... Engine/Entity.o"
 	@echo "... Engine/Entity.i"
 	@echo "... Engine/Entity.s"

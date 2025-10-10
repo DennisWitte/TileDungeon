@@ -218,5 +218,6 @@ CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o: \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc \
  /home/dennis/Projects/TileDungeon/Game/../Engine/ResourceManagement/../../raylib/src/raylib.h \
+ /home/dennis/Projects/TileDungeon/Game/../Engine/Math.h \
  /home/dennis/Projects/TileDungeon/Game/CharacterController.hpp \
  /home/dennis/Projects/TileDungeon/Game/Player.hpp

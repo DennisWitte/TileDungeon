@@ -8,6 +8,7 @@
 #include <type_traits>
 #include <typeindex>
 #include "ResourceManagement/ResourcesService.hpp"
+#include "Math.h"
 
 namespace Core
 {
@@ -25,19 +26,23 @@ namespace Core
     {
     public:
         /// @brief Will be called by Entity.AddComponent
-        void SetEntity(Core::Entity *entity) { _entity = entity; }
-        Core::Entity *GetEntity() { return _entity; }
+        void SetEntity(Core::Entity *entity);
+        Core::Entity *GetEntity();
 
-        void EntityEnable() { OnEntityEnable(); };
-        void EntityDisable() { OnEntityDisable(); };
-        void Enable() { OnEnable(); };
-        void Disable() { OnDisable(); };
-        void Update() { OnUpdate(); };
-        void Draw3D() { OnDraw3D(); };
-        void Draw2D() { OnDraw2D(); };
+        void EntityEnable();
+        void EntityDisable();
+        void Enable();
+        void Disable();
+        void Update();
+        void Draw3D();
+        void Draw2D();
+
+        bool IsEnabled() const;
+        bool IsEnabledSelf() const;
 
     private:
         Core::Entity *_entity;
+        bool _enabledSelf = false;
 
         virtual void OnUpdate() {}
         virtual void OnDraw3D() {}
@@ -162,8 +167,11 @@ namespace Core
         void SetPosition(const Vector3 &position) { _raylibTransform.translation = position; }
         Vector3 GetPosition() const { return _raylibTransform.translation; }
 
-        void SetEulerAngles(const Vector3 &eulerAngles) { _raylibTransform.rotation = QuaternionFromEuler(eulerAngles.z, eulerAngles.y, eulerAngles.x); }
+        void SetEulerAngles(const Vector3 &eulerAngles);
+        void SetEulerAnglesDegrees(const Vector3 &eulerAngles);
+
         Vector3 GetEulerAngles() const { return QuaternionToEuler(_raylibTransform.rotation); }
+        Vector3 GetEulerAnglesDegrees() const { return Vector3Scale(QuaternionToEuler(_raylibTransform.rotation), RAD2DEG); }
 
         void SetScale(const Vector3 &scale) { _raylibTransform.scale = scale; }
         Vector3 GetScale() const { return _raylibTransform.scale; }
@@ -177,9 +185,13 @@ namespace Core
 
         Quaternion LookRotation(Vector3 direction, Vector3 up = {0, 1, 0});
         void LookAt(Vector3 position);
+        /// @brief  Rotates the transform around the given axis by the specified angle in radians.
+        void Rotate(float angleRadians, Vector3 axis = {0, 1, 0});
 
     private:
         ::Transform _raylibTransform;
+
+        void OnDraw3D() override;
     };
 
     class Camera : public Component
@@ -196,15 +208,10 @@ namespace Core
         ~Camera();
 
         void Render();
-        void SetTarget(Vector3 target);
-        void SetUp(Vector3 up);
         void SetFov(float fov);
         void SetProjection(ProjectionType projection);
         std::shared_ptr<RenderTexture> GetRenderTexture() const { return _renderTexture; }
 
-        Vector3 GetPosition();
-        Vector3 GetTarget();
-        Vector3 GetUp();
         float GetFov();
         ProjectionType GetProjection();
 

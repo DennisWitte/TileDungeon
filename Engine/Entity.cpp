@@ -23,6 +23,7 @@ namespace Core
         for (const auto &[type, component] : _components)
         {
             component->EntityEnable();
+            component->Enable();
         }
     }
     /// @brief Will be called when the Entity gets disabled
@@ -31,6 +32,7 @@ namespace Core
         for (const auto &[type, component] : _components)
         {
             component->EntityDisable();
+            component->Disable();
         }
     }
     /// @brief Will be called every frame and updates all Components on this Entity. Will be called before drawing.

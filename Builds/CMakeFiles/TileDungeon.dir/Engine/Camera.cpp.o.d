@@ -217,4 +217,5 @@ CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.o: \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc \
  /home/dennis/Projects/TileDungeon/Engine/ResourceManagement/../../raylib/src/raylib.h \
+ /home/dennis/Projects/TileDungeon/Engine/Math.h \
  /home/dennis/Projects/TileDungeon/Engine/RenderManager.hpp

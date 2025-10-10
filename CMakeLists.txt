@@ -18,6 +18,7 @@ add_executable(
     Game.cpp
 
     Engine/Entity.cpp
+    Engine/Component.cpp
     Engine/Scene.cpp
     Engine/Transform.cpp
     Engine/Camera.cpp

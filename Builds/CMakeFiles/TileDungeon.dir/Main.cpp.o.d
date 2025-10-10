@@ -214,4 +214,5 @@ CMakeFiles/TileDungeon.dir/Main.cpp.o: \
  /usr/include/c++/13/typeindex \
  /home/dennis/Projects/TileDungeon/Engine/ResourceManagement/ResourcesService.hpp \
  /home/dennis/Projects/TileDungeon/Engine/ResourceManagement/ResourcesController.hpp \
- /home/dennis/Projects/TileDungeon/Engine/ResourceManagement/../../raylib/src/raylib.h
+ /home/dennis/Projects/TileDungeon/Engine/ResourceManagement/../../raylib/src/raylib.h \
+ /home/dennis/Projects/TileDungeon/Engine/Math.h

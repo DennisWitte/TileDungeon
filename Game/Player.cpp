@@ -7,49 +7,94 @@ void Player::OnEnable()
     _controller = GetEntity()->GetComponent<CharacterController>();
     _textRenderer = GetEntity()->GetComponent<Core::TextRenderer>();
 }
+
 void Player::OnDisable()
 {
 }
 
+void Player::StartTick()
+{
+    _isInTick = true;
+    _tickTimer = _tickDuration;
+}
+
 void Player::OnUpdate()
 {
-    if (!_transform.lock() || !_controller.lock())
-        return;
 
     std::shared_ptr<Core::Transform> transform = this->_transform.lock();
+    if (transform == nullptr)
+        return;
+
     std::shared_ptr<CharacterController> controller = this->_controller.lock();
+    if (controller == nullptr)
+        return;
 
     std::shared_ptr<Core::TextRenderer> textRenderer = this->_textRenderer.lock();
-    if (!textRenderer)
+    if (textRenderer == nullptr)
         return;
 
     textRenderer->SetText("FPS: " + std::to_string(GetFPS()));
 
-    if (GetKeyPressed() == KEY_W)
+    if (_isInTick)
     {
-        controller->Move({0, 0, (float)1 * GetFrameTime()});
+        _tickTimer -= GetFrameTime();
+
+        if (_tickTimer <= 0.0f)
+        {
+            _isInTick = false;
+            _tickTimer = 0.0f;
+        }
+
+        transform->SetPosition(Vector3Lerp(_fromPosition, _targetPosition, Normalize(_tickDuration - _tickTimer, 0, _tickDuration)));
+        return;
     }
 
-    if (GetKeyPressed() == KEY_S)
+    // POSITION
+    if (IsKeyDown(KEY_W))
     {
-        controller->Move({0, 0, -((float)1 * GetFrameTime())});
+        // controller->Move(Vector3Scale(transform->GetForward(), (float)2 * GetFrameTime()));
+        _targetPosition = Vector3Add(transform->GetPosition(), transform->GetForward());
+        _fromPosition = transform->GetPosition();
+        StartTick();
+        return;
     }
-    // _controller->Rotate(10 * GetFrameTime());
-    // _controller->Update(0, tickTime, *_transform);
-    Vector3 nextPosition = {transform->GetPosition().x + GetFrameTime(), 2, transform->GetPosition().z + GetFrameTime()};
-    //_transform->LookAt(nextPosition);
-    float yRot = transform->GetEulerAngles().y + GetFrameTime();
-    if (yRot > PI / 2)
-        yRot = 0;
-    if (yRot < 0)
-        yRot = PI / 2;
 
-    std::string eulerAnglesText = std::to_string(transform->GetEulerAngles().y);
-    DrawText(eulerAnglesText.c_str(), 10, 10, 25, BLACK);
+    if (IsKeyDown(KEY_S))
+    {
+        _targetPosition = Vector3Add(transform->GetPosition(), Vector3Scale(transform->GetForward(), -1));
+        _fromPosition = transform->GetPosition();
+        // controller->Move(Vector3Scale(transform->GetForward(), -(float)2 * GetFrameTime()));
+        StartTick();
+        return;
+    }
 
-    Vector3 dir = Vector3Subtract({0, 0, 0}, transform->GetPosition());
-    transform->SetRotation(transform->LookRotation(dir));
-    transform->SetPosition(nextPosition);
+    if (IsKeyDown(KEY_A))
+    {
+        _targetPosition = Vector3Add(transform->GetPosition(), transform->GetRight());
+        _fromPosition = transform->GetPosition();
+        // controller->Move(Vector3Scale(transform->GetRight(), (float)2 * GetFrameTime()));
+        StartTick();
+        return;
+    }
+
+    if (IsKeyDown(KEY_D))
+    {
+        _targetPosition = Vector3Add(transform->GetPosition(), Vector3Scale(transform->GetRight(), -1));
+        _fromPosition = transform->GetPosition();
+        // controller->Move(Vector3Scale(transform->GetRight(), -(float)2 * GetFrameTime()));
+        StartTick();
+        return;
+    }
+
+    // ROTATION
+    if (IsKeyDown(KEY_Q))
+    {
+        // controller->Rotate(90.0f * DEG2RAD * GetFrameTime());
+    }
+    if (IsKeyDown(KEY_E))
+    {
+        // controller->Rotate(-90.0f * DEG2RAD * GetFrameTime());
+    }
 
     //_cameraTarget->SetPosition(_transform->GetPosition());
     //_cameraTarget->SetEulerAngles(_transform->GetEulerAngles());

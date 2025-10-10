@@ -15,4 +15,6 @@ private:
     void OnUpdate() override;
 
     std::weak_ptr<Core::Transform> _transform;
+    Vector3 _moveThisFrame;
+    float _targetEulerAngles;
 };

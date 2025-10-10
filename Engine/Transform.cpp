@@ -3,12 +3,20 @@
 
 namespace Core
 {
+    ::Transform _raylibTransform;
+
     Transform::Transform() {}
     Transform::~Transform() {}
 
+    void Transform::SetEulerAngles(const Vector3 &eulerAngles)
+    {
+        _raylibTransform.rotation = QuaternionFromEuler(WrapAngle(eulerAngles.z), WrapAngle(eulerAngles.y), WrapAngle(eulerAngles.x));
+    }
+    void Transform::SetEulerAnglesDegrees(const Vector3 &eulerAngles) { _raylibTransform.rotation = QuaternionFromEuler(eulerAngles.z * DEG2RAD, eulerAngles.y * DEG2RAD, eulerAngles.x * DEG2RAD); }
+
     Vector3 Transform::GetForward() const
     {
-        return Vector3Normalize(Vector3Transform((Vector3){0, 0, -1}, QuaternionToMatrix(_raylibTransform.rotation)));
+        return Vector3Normalize(Vector3Transform((Vector3){0, 0, 1}, QuaternionToMatrix(_raylibTransform.rotation)));
     }
 
     Vector3 Transform::GetUp() const
@@ -41,5 +49,23 @@ namespace Core
     {
         Vector3 direction = position - _raylibTransform.translation;
         _raylibTransform.rotation = LookRotation(direction);
+    }
+
+    void Transform::Rotate(float angleRadians, Vector3 axis)
+    {
+        _raylibTransform.rotation = QuaternionMultiply(QuaternionFromAxisAngle(axis, angleRadians), _raylibTransform.rotation);
+    }
+
+    void Transform::OnDraw3D()
+    {
+        Vector3 startPos = GetPosition();
+        Vector3 endPos = Vector3Add(startPos, GetUp());
+        DrawLine3D(startPos, endPos, GREEN);
+
+        endPos = Vector3Add(startPos, GetRight());
+        DrawLine3D(startPos, endPos, RED);
+
+        endPos = Vector3Add(startPos, GetForward());
+        DrawLine3D(startPos, endPos, BLUE);
     }
 }

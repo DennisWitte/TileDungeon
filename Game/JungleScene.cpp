@@ -19,7 +19,7 @@ JungleScene::JungleScene()
     ResourcesService::Load<Shader>(diffuseShaderPaths);
 
     // Load Models
-    ResourcesService::Load<Model>("../Resources/Editor/TranslateHandles.glb");
+    ResourcesService::Load<Model>("../Resources/Editor/TranslateHandle.glb");
     ResourcesService::Load<Model>("../Resources/PalmTree/PalmTrees.glb");
     ResourcesService::Load<Model>("../Resources/ArtDungeonScene1/ArtDungeonScene1.glb");
     ResourcesService::Load<Model>("../Resources/Quad.glb");
@@ -40,7 +40,7 @@ JungleScene::JungleScene()
     levelModelEntity->Name = "ArtDungeonScene1";
     auto t = levelModelEntity->AddComponent<Core::Transform>();
     t->SetPosition({0, 0, 0});
-    t->SetEulerAngles({0, 0, 0});
+    t->SetRotation(QuaternionIdentity());
     t->SetScale({1, 1, 1});
 
     auto r = levelModelEntity->AddComponent<Core::MeshRenderer>();
@@ -53,13 +53,14 @@ JungleScene::JungleScene()
     // Camera
     std::shared_ptr<Core::Entity> cameraEntity = scene->CreateEntity();
     cameraEntity->Name = "MainCamera";
+
     auto cameraTransform = cameraEntity->AddComponent<Core::Transform>();
-    cameraTransform->SetPosition({5.0f, 5.0f, 5.0f});
+    cameraTransform->SetPosition({0.0f, 1.65f, 0.0f});
+    cameraTransform->SetEulerAnglesDegrees({0, 0, 0});
+    cameraTransform->SetScale({1, 1, 1});
 
     auto camera = cameraEntity->AddComponent<Core::Camera>();
-    camera->SetTarget({0.0f, 0.0f, 0.0f});
-    camera->SetUp({0.0f, 1.0f, 0.0f});
-    camera->SetFov(45.0f);
+    camera->SetFov(90.0f);
     camera->SetProjection(Core::Camera::CAMERA_PERSPECTIVE);
 
     auto characterController = cameraEntity->AddComponent<CharacterController>();
@@ -71,10 +72,11 @@ JungleScene::JungleScene()
     fpsCounterText->SetColor(WHITE);
     fpsCounterText->SetPosition(10, 10);
 
-    auto r_th = levelModelEntity->AddComponent<Core::MeshRenderer>();
-    r_th->SetModel("../Resources/Editor/TranslateHandle.glb");
-    // r_th->SetBackfaceCulling(true);
-    // r_th->SetShader(-1, "../Resources/Shader/OpaquePS1.vs", "../Resources/Shader/OpaquePS1.fs");
+    // auto r_th = cameraEntity->AddComponent<Core::MeshRenderer>();
+    // r_th->SetModel("../Resources/Editor/TranslateHandle.glb");
+
+    //   r_th->SetBackfaceCulling(true);
+    //   r_th->SetShader(-1, "../Resources/Shader/OpaquePS1.vs", "../Resources/Shader/OpaquePS1.fs");
 
     scene->Enable();
 }
@@ -93,7 +95,7 @@ JungleScene::~JungleScene()
     ResourcesService::Unload<Shader>(diffuseShaderPaths);
 
     // Unload Models
-    ResourcesService::Unload<Model>("../Resources/Editor/TranslateHandles.glb");
+    ResourcesService::Unload<Model>("../Resources/Editor/TranslateHandle.glb");
     ResourcesService::Unload<Model>("../Resources/PalmTree/PalmTrees.glb");
     ResourcesService::Unload<Model>("../Resources/Quad.glb");
     ResourcesService::Unload<Model>("../Resources/ArtDungeonScene1/ArtDungeonScene1.glb");

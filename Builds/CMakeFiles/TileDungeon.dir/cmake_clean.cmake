@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.o"
   "CMakeFiles/TileDungeon.dir/Engine/Camera.cpp.o.d"
+  "CMakeFiles/TileDungeon.dir/Engine/Component.cpp.o"
+  "CMakeFiles/TileDungeon.dir/Engine/Component.cpp.o.d"
   "CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.o"
   "CMakeFiles/TileDungeon.dir/Engine/Entity.cpp.o.d"
   "CMakeFiles/TileDungeon.dir/Engine/MeshRenderer.cpp.o"
