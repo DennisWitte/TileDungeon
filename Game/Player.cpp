@@ -43,9 +43,15 @@ void Player::OnUpdate()
         {
             _isInTick = false;
             _tickTimer = 0.0f;
+            _fromPosition = _targetPosition;
+            _fromRotation = _targetRotation;
         }
 
-        transform->SetPosition(Vector3Lerp(_fromPosition, _targetPosition, Normalize(_tickDuration - _tickTimer, 0, _tickDuration)));
+        float norm = Normalize(_tickDuration - _tickTimer, 0, _tickDuration);
+        transform->SetPosition(Vector3Lerp(_fromPosition, _targetPosition, norm));
+        transform->SetRotation(QuaternionSlerp(_fromRotation, _targetRotation, norm));
+        printf("Norm: %f", norm);
+
         return;
     }
 
@@ -90,10 +96,18 @@ void Player::OnUpdate()
     if (IsKeyDown(KEY_Q))
     {
         // controller->Rotate(90.0f * DEG2RAD * GetFrameTime());
+        _targetRotation = QuaternionFromAxisAngle({0, 1, 0}, transform->GetEulerAngles().y + (90.0f * DEG2RAD)), transform->GetRotation();
+        _fromRotation = transform->GetRotation();
+        StartTick();
+        return;
     }
     if (IsKeyDown(KEY_E))
     {
         // controller->Rotate(-90.0f * DEG2RAD * GetFrameTime());
+        _targetRotation = QuaternionFromAxisAngle({0, 1, 0}, transform->GetEulerAngles().y - (90.0f * DEG2RAD)), transform->GetRotation();
+        _fromRotation = transform->GetRotation();
+        StartTick();
+        return;
     }
 
     //_cameraTarget->SetPosition(_transform->GetPosition());

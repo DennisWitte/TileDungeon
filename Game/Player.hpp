@@ -24,4 +24,6 @@ private:
     float _tickDuration = 0.333333f;
     Vector3 _targetPosition;
     Vector3 _fromPosition;
+    Quaternion _targetRotation;
+    Quaternion _fromRotation;
 };

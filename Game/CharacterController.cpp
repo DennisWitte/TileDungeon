@@ -21,7 +21,7 @@ void CharacterController::OnUpdate()
     std::shared_ptr<Core::Transform> transform = this->_transform.lock();
 
     transform->SetPosition(Vector3Add(transform->GetPosition(), _moveThisFrame));
-    transform->Rotate(_targetEulerAngles);
+    // transform->Rotate(_targetEulerAngles);
     _moveThisFrame = {0, 0, 0};
     _targetEulerAngles = 0;
     // transform.SetPosition(Vector3Lerp(transform.GetPosition(), _targetPosition, tickTime));

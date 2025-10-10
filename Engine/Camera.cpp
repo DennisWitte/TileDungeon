@@ -49,8 +49,6 @@ namespace Core
         _raylibCamera->target = Vector3Add(transform->GetPosition(), transform->GetForward()); // Vector3Add(transform->GetPosition(), transform->GetForward());
         _raylibCamera->up = transform->GetUp();                                                // Camera up vector (rotation towards target)
 
-        printf("Camera Forward: %f, %f, %f\n", transform->GetForward().x, transform->GetForward().y, transform->GetForward().z);
-        printf("Camera Position: %f, %f, %f\n", transform->GetPosition().x, transform->GetPosition().y, transform->GetPosition().z);
         printf("Camera Rotation: %f, %f, %f\n", transform->GetEulerAnglesDegrees().x, transform->GetEulerAnglesDegrees().y, transform->GetEulerAnglesDegrees().z);
         UpdateCamera(_raylibCamera.get(), CAMERA_CUSTOM);
         //  UpdateCameraPro(_raylibCamera.get(), transform->GetPosition(), transform->GetEulerAngles(), 1.0f);
