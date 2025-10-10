@@ -20,9 +20,17 @@ namespace Core
         {
             _cameras.erase(std::remove(_cameras.begin(), _cameras.end(), camera), _cameras.end());
         }
+
+        static void Shutdown()
+        {
+            _cameras.clear();
+        }
+
         static void RenderCameras()
         {
             BeginDrawing();
+
+            // First Draw all 3D content through each camera.
             for (auto camera : _cameras)
             {
                 camera->Render();
@@ -36,10 +44,12 @@ namespace Core
                                WHITE);
             }
 
-            // TODO: Momentan kann man nur 3D in den Draw() methoden der entities rendern. Es braucht eine lösung für UI / 2D
-            char fps[9];
-            sprintf(fps, "FPS: %02d", GetFPS());
-            DrawText(fps, 10, 10, 40, BLACK);
+            // Then Draw all 2D content from all scenes.
+            for (const auto &[name, scene] : SceneManager::GetScenes())
+            {
+                scene->Draw2D();
+            }
+
             EndDrawing();
         }
 

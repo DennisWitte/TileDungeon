@@ -116,6 +116,7 @@ namespace Core
         if (rawModel.meshCount == 0)
         {
             std::cerr << "ERROR: Can't load Model at " << filePath << std::endl;
+            rawModel = LoadModel("../Resources/Editor/FallbackModel.glb");
         }
         return std::make_shared<Model>(rawModel);
     }

@@ -11,7 +11,7 @@ namespace Core
     {
     }
 
-    void TextRenderer::OnDraw()
+    void TextRenderer::OnDraw2D()
     {
         if (_font.texture.id == 0)
         {

@@ -1,17 +1,18 @@
 #pragma once
 #include "../Engine/CoreEngine.hpp"
 
-class CharacterController
+class CharacterController : public Core::Component
 {
 public:
+    CharacterController() {};
+    ~CharacterController() {};
     void Move(Vector3 movement);
     void Rotate(float yAngle);
-    void Update(float deltaTime, float tickTime, Core::Transform &transform);
 
 private:
-    Shader _alphaCutoutShader;
-    Texture _jungleGroundTexture;
+    void OnEnable() override;
+    void OnDisable() override;
+    void OnUpdate() override;
 
-    std::vector<std::shared_ptr<Core::Transform>> _transforms;
-    std::vector<std::shared_ptr<Core::MeshRenderer>> _renderer;
+    std::weak_ptr<Core::Transform> _transform;
 };

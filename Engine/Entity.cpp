@@ -12,7 +12,10 @@ namespace Core
         _scene = scene;
         SetEnabled(true);
     }
-    Entity::~Entity() {}
+    Entity::~Entity()
+    {
+        _components.clear();
+    }
 
     /// @brief Will be called when the Entity gets enabled
     void Entity::Enable()
@@ -42,15 +45,27 @@ namespace Core
         }
     }
 
-    /// @brief Will be called every frame during the draw context. Use draw commands here.
-    void Entity::Draw()
+    /// @brief Will be called every frame during the 3D draw context. Use 3D draw commands here.
+    void Entity::Draw3D()
     {
         if (!_enabled)
             return;
 
         for (const auto &[type, component] : _components)
         {
-            component->Draw();
+            component->Draw3D();
+        }
+    }
+
+    /// @brief Will be called every frame during the 2D draw context. Use 2D draw commands here.
+    void Entity::Draw2D()
+    {
+        if (!_enabled)
+            return;
+
+        for (const auto &[type, component] : _components)
+        {
+            component->Draw2D();
         }
     }
 

@@ -1,4 +1,7 @@
 #include "JungleScene.hpp"
+#include "CharacterController.hpp"
+#include "Player.hpp"
+
 using namespace Core;
 using namespace std;
 
@@ -16,6 +19,7 @@ JungleScene::JungleScene()
     ResourcesService::Load<Shader>(diffuseShaderPaths);
 
     // Load Models
+    ResourcesService::Load<Model>("../Resources/Editor/TranslateHandles.glb");
     ResourcesService::Load<Model>("../Resources/PalmTree/PalmTrees.glb");
     ResourcesService::Load<Model>("../Resources/ArtDungeonScene1/ArtDungeonScene1.glb");
     ResourcesService::Load<Model>("../Resources/Quad.glb");
@@ -58,6 +62,20 @@ JungleScene::JungleScene()
     camera->SetFov(45.0f);
     camera->SetProjection(Core::Camera::CAMERA_PERSPECTIVE);
 
+    auto characterController = cameraEntity->AddComponent<CharacterController>();
+    auto player = cameraEntity->AddComponent<Player>();
+
+    auto fpsCounterText = cameraEntity->AddComponent<Core::TextRenderer>();
+    fpsCounterText->SetText("FPS: 0");
+    fpsCounterText->SetFontSize(20);
+    fpsCounterText->SetColor(WHITE);
+    fpsCounterText->SetPosition(10, 10);
+
+    auto r_th = levelModelEntity->AddComponent<Core::MeshRenderer>();
+    r_th->SetModel("../Resources/Editor/TranslateHandle.glb");
+    // r_th->SetBackfaceCulling(true);
+    // r_th->SetShader(-1, "../Resources/Shader/OpaquePS1.vs", "../Resources/Shader/OpaquePS1.fs");
+
     scene->Enable();
 }
 
@@ -75,6 +93,7 @@ JungleScene::~JungleScene()
     ResourcesService::Unload<Shader>(diffuseShaderPaths);
 
     // Unload Models
+    ResourcesService::Unload<Model>("../Resources/Editor/TranslateHandles.glb");
     ResourcesService::Unload<Model>("../Resources/PalmTree/PalmTrees.glb");
     ResourcesService::Unload<Model>("../Resources/Quad.glb");
     ResourcesService::Unload<Model>("../Resources/ArtDungeonScene1/ArtDungeonScene1.glb");
@@ -84,7 +103,7 @@ JungleScene::~JungleScene()
 
 void JungleScene::Draw()
 {
-    scene->Draw();
+    scene->Draw3D();
 }
 
 void JungleScene::PlaceRandomTree()

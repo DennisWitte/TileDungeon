@@ -2364,7 +2364,9 @@ CMakeFiles/TileDungeon.dir/Game/JungleScene.cpp.o: /home/dennis/Projects/TileDun
   /home/dennis/Projects/TileDungeon/raylib/src/raylib.h \
   /home/dennis/Projects/TileDungeon/Engine/ResourceManagement/ResourcesController.hpp \
   /home/dennis/Projects/TileDungeon/Engine/ResourceManagement/ResourcesService.hpp \
+  /home/dennis/Projects/TileDungeon/Game/CharacterController.hpp \
   /home/dennis/Projects/TileDungeon/Game/JungleScene.hpp \
+  /home/dennis/Projects/TileDungeon/Game/Player.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \

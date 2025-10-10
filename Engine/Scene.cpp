@@ -9,6 +9,7 @@ namespace Core
     }
     Scene::~Scene()
     {
+        _entities.clear();
     }
 
     /// @brief Create a new Entity in this scene.
@@ -22,7 +23,6 @@ namespace Core
 
     void Scene::RemoveEntity(int entityId)
     {
-        // Entferne die Entity anhand ihrer ID aus der Map
         _entities.erase(entityId);
     }
 
@@ -44,21 +44,25 @@ namespace Core
 
     void Scene::Update()
     {
-        //  OnUpdate();
-
         for (auto &pair : _entities)
         {
             pair.second->Update();
         }
     }
 
-    void Scene::Draw()
+    void Scene::Draw3D()
     {
-        // OnDraw();
-
         for (auto &pair : _entities)
         {
-            pair.second->Draw();
+            pair.second->Draw3D();
+        }
+    }
+
+    void Scene::Draw2D()
+    {
+        for (auto &pair : _entities)
+        {
+            pair.second->Draw2D();
         }
     }
 }

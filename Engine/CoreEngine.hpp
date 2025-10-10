@@ -33,13 +33,15 @@ namespace Core
         void Enable() { OnEnable(); };
         void Disable() { OnDisable(); };
         void Update() { OnUpdate(); };
-        void Draw() { OnDraw(); };
+        void Draw3D() { OnDraw3D(); };
+        void Draw2D() { OnDraw2D(); };
 
     private:
         Core::Entity *_entity;
 
         virtual void OnUpdate() {}
-        virtual void OnDraw() {}
+        virtual void OnDraw3D() {}
+        virtual void OnDraw2D() {}
         virtual void OnEntityDisable() {}
         virtual void OnEntityEnable() {}
         virtual void OnEnable() {};
@@ -58,12 +60,14 @@ namespace Core
         void Enable();
         void Disable();
         void Update();
-        void Draw();
+        void Draw3D();
+        void Draw2D();
 
         void SetEnabled(bool enabled);
         bool IsEnabled() const;
         int GetId() const { return _id; }
-        std::shared_ptr<Core::Scene> GetScene() const { return _scene; }
+        // Returns the scene this entity belongs to. May return a nullptr if the scene has been destroyed!
+        std::shared_ptr<Core::Scene> GetScene() const { return _scene.lock(); }
 
         // TODO: ADD und GET in tpp file ?
         template <typename T, typename... Args>
@@ -90,7 +94,7 @@ namespace Core
         bool _enabled;
         unsigned int _id;
         static unsigned int _nextId;
-        std::shared_ptr<Core::Scene> _scene; // The scene this entity belongs to
+        std::weak_ptr<Core::Scene> _scene; // The scene this entity belongs to
         std::unordered_map<std::type_index, std::shared_ptr<Component>> _components;
 
         virtual void OnEnable() {};
@@ -110,7 +114,9 @@ namespace Core
 
         /// @brief Updates the Scene and all its Entities. Call this in your main game loop.
         void Update();
-        void Draw();
+        void Draw3D();
+        void Draw2D();
+
         void Enable();
         void Disable();
 
@@ -131,6 +137,13 @@ namespace Core
 
         /// @brief Updates all registered scenes. Call this in your main game loop.
         static void Update();
+        static void Shutdown() { _scenes.clear(); };
+
+        /// @brief Returns all loaded scenes.
+        static const std::unordered_map<std::string, std::shared_ptr<Core::Scene>> &GetScenes()
+        {
+            return _scenes;
+        }
 
     private:
         static std::unordered_map<std::string, std::shared_ptr<Core::Scene>> _scenes;
@@ -217,7 +230,7 @@ namespace Core
         void OnEntityEnable() override;
         void OnEntityDisable() override;
         //        void OnUpdate() override;
-        void OnDraw() override;
+        void OnDraw3D() override;
 
     private:
         std::shared_ptr<Model> _model;
@@ -239,7 +252,7 @@ namespace Core
         void SetFont(std::string fontPath);
 
     private:
-        void OnDraw() override;
+        void OnDraw2D() override;
 
         std::string _text;
         int _fontSize;

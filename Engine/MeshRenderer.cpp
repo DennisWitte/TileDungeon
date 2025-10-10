@@ -133,7 +133,7 @@ namespace Core
         }
     }
 
-    void MeshRenderer::OnDraw()
+    void MeshRenderer::OnDraw3D()
     {
         if (!_valid)
             return;

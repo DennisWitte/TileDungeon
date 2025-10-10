@@ -23,5 +23,10 @@ void Game::Run()
         SceneManager::Update();
         RenderManager::RenderCameras();
     }
-    CloseWindow(); // Fenster schließen
+
+    // Make sure we cleanup all static data
+    SceneManager::Shutdown();
+    RenderManager::Shutdown();
+
+    CloseWindow(); // Close window and OpenGL context
 }

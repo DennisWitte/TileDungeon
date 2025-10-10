@@ -49,7 +49,7 @@ namespace Core
         BeginTextureMode(*_renderTexture);
         ClearBackground(MAGENTA);
         BeginMode3D(*_raylibCamera);
-        GetEntity()->GetScene()->Draw();
+        GetEntity()->GetScene()->Draw3D();
         EndMode3D();
         EndTextureMode();
 

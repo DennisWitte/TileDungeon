@@ -1,22 +1,19 @@
 #pragma once
 #include "../Engine/CoreEngine.hpp"
 #include "CharacterController.hpp"
-#include <memory>
 
-class Player
+class Player : public Core::Component
 {
 public:
-    Player();
-    ~Player();
-    std::shared_ptr<Core::Transform> GetCameraTarget() { return _cameraTarget; };
-    std::shared_ptr<Core::Transform> GetTransform() { return _transform; };
-
-    void Update(float tickTime);
+    Player() {};
+    ~Player() {};
 
 private:
-    std::shared_ptr<Core::Transform> _transform;
-    std::shared_ptr<Core::Transform> _cameraTarget;
-    std::shared_ptr<Core::MeshRenderer> _meshRenderer;
-    std::shared_ptr<CharacterController> _controller;
-    Vector3 _nextMoveDirection;
+    void OnEnable() override;
+    void OnDisable() override;
+    void OnUpdate() override;
+
+    std::weak_ptr<Core::Transform> _transform;
+    std::weak_ptr<CharacterController> _controller;
+    std::weak_ptr<Core::TextRenderer> _textRenderer;
 };
